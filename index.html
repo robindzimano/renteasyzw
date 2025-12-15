@@ -38,7 +38,10 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .search-box select, .search-box button {
+    .search-box select,
+    .search-box button,
+    .search-box input,
+    .search-box textarea {
       width: 100%;
       padding: 12px;
       margin-top: 10px;
@@ -100,6 +103,7 @@
   <p>Find rental properties across Zimbabwe</p>
 </header>
 
+<!-- SEARCH -->
 <div class="search-box">
   <select>
     <option>Select City / Town</option>
@@ -122,52 +126,43 @@
   <button>Search Properties</button>
 </div>
 
+<!-- LANDLORD FORM -->
 <div class="search-box">
   <h3>List Your Property (FREE)</h3>
 
-<form action="mailto:robindzimano@gmail.com" method="post" enctype="text/plain">
+  <form action="mailto:robindzimano@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="Name" placeholder="Your Name" required>
+    <input type="text" name="Phone" placeholder="Phone / WhatsApp Number" required>
+    <input type="text" name="Location" placeholder="City / Suburb" required>
+    <input type="text" name="Price" placeholder="Monthly Rent (USD)" required>
+    <textarea name="Details" placeholder="Property details" rows="4"></textarea>
+    <input type="text" name="Image_Link" placeholder="Paste image link (Google Drive / iCloud / WhatsApp)">
 
-  <input type="text" name="Name" placeholder="Your Name" required><br><br>
+    <p style="font-size:14px;color:#555;">
+      📸 Upload images to Google Drive or iCloud and paste the link above,
+      or send images via WhatsApp after submitting.
+    </p>
 
-  <input type="text" name="Phone" placeholder="Phone / WhatsApp Number" required><br><br>
-
-  <input type="text" name="Location" placeholder="City / Suburb" required><br><br>
-
-  <input type="text" name="Price" placeholder="Monthly Rent (USD)" required><br><br>
-
-  <textarea name="Details" placeholder="Property details" rows="4"></textarea><br><br>
-
-  <input type="text" name="Image_Link" placeholder="Paste image link (Google Drive / iCloud / WhatsApp)"><br><br>
-
-  <p style="font-size:14px;color:#555;">
-    📸 To add photos: upload them to Google Drive or iCloud and paste the link above,
-    or send them to us directly on WhatsApp after submitting.
-  </p>
-
-  <button type="submit">Submit Property</button>
-</form>
-    
+    <button type="submit">Submit Property</button>
+  </form>
 </div>
 
-<div class="section-title">Featured Listings</div>
 <div class="section-title">Browse by Location</div>
 
+<!-- MAP -->
 <div class="card">
-  <p>Explore rental locations across Zimbabwe</p>
-
   <iframe
     src="https://www.google.com/maps?q=Zimbabwe&output=embed"
     width="100%"
     height="300"
-    style="border:0; border-radius:8px;"
+    style="border:0;border-radius:8px;"
     loading="lazy">
   </iframe>
-
-  <p style="font-size:14px;color:#555;margin-top:10px;">
-    📍 Locations are approximate for privacy and safety.
-  </p>
 </div>
 
+<div class="section-title">Featured Listings</div>
+
+<!-- LISTING -->
 <div class="card">
   <h3>Room for Rent – Highfield, Harare</h3>
 
@@ -175,20 +170,20 @@
   <p><strong>Rent:</strong> $120 / month</p>
   <p><strong>Location:</strong> Highfield (Harare)</p>
 
-<div id="lockedNotice" class="locked">
-  🔒 Contact details locked
-</div>
+  <div id="lockedNotice" class="locked">
+    🔒 Contact details locked
+  </div>
 
-<div id="contactDetails" style="display:none;">
-  <p><strong>Contact:</strong> 077X XXX XXX</p>
-  <p><strong>WhatsApp:</strong> 077X XXX XXX</p>
-</div>
+  <div id="contactDetails" style="display:none;">
+    <p><strong>Contact:</strong> 077X XXX XXX</p>
+    <p><strong>WhatsApp:</strong> 077X XXX XXX</p>
+  </div>
+
   <button
     onclick="startDailyAccess()"
-    style="padding:12px;width:100%;
+    style="margin-top:10px;padding:12px;width:100%;
     background:#28a745;color:white;
-    border:none;border-radius:5px;
-    font-size:16px;">
+    border:none;border-radius:5px;font-size:16px;">
     Pay $2 – Unlimited Access for 24 Hours
   </button>
 
@@ -196,11 +191,6 @@
     Unlock all listings and contact details for 24 hours.
   </p>
 </div>
-  </div>
-
- 
-</div>
-
 
 <a class="whatsapp" href="https://wa.me/263XXXXXXXXX">
   WhatsApp
@@ -209,10 +199,8 @@
 <footer>
   © 2025 RentEasy ZW
 </footer>
-<script>
-  function startDailyAccess() {
-    alert("You selected the $2 daily unlimited access. EcoCash payment will be added next.");
-  }
+
+<!-- ACCESS LOGIC -->
 <script>
   const ACCESS_DURATION = 24 * 60 * 60 * 1000; // 24 hours
 
@@ -235,12 +223,14 @@
 
   function checkAccess() {
     const startTime = localStorage.getItem("accessStartTime");
+
     if (!startTime) {
       lockDetails();
       return;
     }
 
     const now = new Date().getTime();
+
     if (now - startTime < ACCESS_DURATION) {
       unlockDetails();
     } else {
@@ -251,5 +241,6 @@
 
   window.onload = checkAccess;
 </script>
+
 </body>
 </html>
