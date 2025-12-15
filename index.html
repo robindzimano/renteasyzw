@@ -1,15 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>RentEasy ZW</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background: #0a7cff;
+      color: white;
+      padding: 25px 15px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-size: 15px;
+    }
+
+    .search-box {
+      background: white;
+      margin: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .search-box select, .search-box button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .search-box button {
+      background: #0a7cff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .section-title {
+      margin: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .card {
+      background: white;
+      margin: 15px 20px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .locked {
+      color: #d9534f;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>RentEasy ZW</h1>
-<p>Find rental properties across Zimbabwe.</p>
+<header>
+  <h1>RentEasy ZW</h1>
+  <p>Find rental properties across Zimbabwe</p>
+</header>
 
-<p><strong>Status:</strong> Website setup in progress.</p>
+<div class="search-box">
+  <select>
+    <option>Select City / Town</option>
+    <option>Harare</option>
+    <option>Bulawayo</option>
+    <option>Gweru</option>
+    <option>Mutare</option>
+    <option>Masvingo</option>
+    <option>Chinhoyi</option>
+    <option>Marondera</option>
+  </select>
+
+  <select>
+    <option>Property Type</option>
+    <option>Room</option>
+    <option>Apartment</option>
+    <option>House</option>
+  </select>
+
+  <button>Search Properties</button>
+</div>
+
+<div class="section-title">Featured Listings</div>
+
+<div class="card">
+  <h3>Room in Highfield, Harare</h3>
+  <p>Price: $120 / month</p>
+  <p class="locked">🔒 Pay to view full details</p>
+</div>
+
+<div class="card">
+  <h3>2 Bedroom Apartment – Hillside, Bulawayo</h3>
+  <p>Price: $350 / month</p>
+  <p class="locked">🔒 Pay to view full details</p>
+</div>
+
+<a class="whatsapp" href="https://wa.me/263XXXXXXXXX">
+  WhatsApp
+</a>
+
+<footer>
+  © 2025 RentEasy ZW
+</footer>
 
 </body>
 </html>
