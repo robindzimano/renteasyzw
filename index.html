@@ -175,9 +175,14 @@
   <p><strong>Rent:</strong> $120 / month</p>
   <p><strong>Location:</strong> Highfield (Harare)</p>
 
-  <div class="locked">
-    🔒 Contact details locked
-    <div style="margin-top:10px;">
+<div id="lockedNotice" class="locked">
+  🔒 Contact details locked
+</div>
+
+<div id="contactDetails" style="display:none;">
+  <p><strong>Contact:</strong> 077X XXX XXX</p>
+  <p><strong>WhatsApp:</strong> 077X XXX XXX</p>
+</div>
   <button
     onclick="startDailyAccess()"
     style="padding:12px;width:100%;
@@ -208,6 +213,43 @@
   function startDailyAccess() {
     alert("You selected the $2 daily unlimited access. EcoCash payment will be added next.");
   }
+<script>
+  const ACCESS_DURATION = 24 * 60 * 60 * 1000; // 24 hours
+
+  function startDailyAccess() {
+    const now = new Date().getTime();
+    localStorage.setItem("accessStartTime", now);
+    unlockDetails();
+    alert("Access granted for 24 hours.");
+  }
+
+  function unlockDetails() {
+    document.getElementById("lockedNotice").style.display = "none";
+    document.getElementById("contactDetails").style.display = "block";
+  }
+
+  function lockDetails() {
+    document.getElementById("lockedNotice").style.display = "block";
+    document.getElementById("contactDetails").style.display = "none";
+  }
+
+  function checkAccess() {
+    const startTime = localStorage.getItem("accessStartTime");
+    if (!startTime) {
+      lockDetails();
+      return;
+    }
+
+    const now = new Date().getTime();
+    if (now - startTime < ACCESS_DURATION) {
+      unlockDetails();
+    } else {
+      localStorage.removeItem("accessStartTime");
+      lockDetails();
+    }
+  }
+
+  window.onload = checkAccess;
 </script>
 </body>
 </html>
