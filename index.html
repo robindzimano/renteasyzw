@@ -20,17 +20,7 @@
       text-align: center;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-
-    header p {
-      margin-top: 8px;
-      font-size: 15px;
-    }
-
-    .search-box {
+    .search-box, .card {
       background: white;
       margin: 20px;
       padding: 15px;
@@ -38,10 +28,10 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .search-box select,
-    .search-box button,
     .search-box input,
-    .search-box textarea {
+    .search-box textarea,
+    .search-box select,
+    .search-box button {
       width: 100%;
       padding: 12px;
       margin-top: 10px;
@@ -55,31 +45,9 @@
       border-radius: 5px;
     }
 
-    .section-title {
-      margin: 20px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .card {
-      background: white;
-      margin: 15px 20px;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
     .locked {
       color: #d9534f;
       font-weight: bold;
-      margin-top: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #777;
     }
 
     .whatsapp {
@@ -93,6 +61,13 @@
       text-decoration: none;
       font-weight: bold;
     }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
+    }
   </style>
 </head>
 
@@ -103,69 +78,8 @@
   <p>Find rental properties across Zimbabwe</p>
 </header>
 
-<!-- SEARCH -->
-<div class="search-box">
-  <select>
-    <option>Select City / Town</option>
-    <option>Harare</option>
-    <option>Bulawayo</option>
-    <option>Gweru</option>
-    <option>Mutare</option>
-    <option>Masvingo</option>
-    <option>Chinhoyi</option>
-    <option>Marondera</option>
-  </select>
-
-  <select>
-    <option>Property Type</option>
-    <option>Room</option>
-    <option>Apartment</option>
-    <option>House</option>
-  </select>
-
-  <button>Search Properties</button>
-</div>
-
-<!-- LANDLORD FORM -->
-<div class="search-box">
-  <h3>List Your Property (FREE)</h3>
-
-  <form action="mailto:robindzimano@gmail.com" method="post" enctype="text/plain">
-    <input type="text" name="Name" placeholder="Your Name" required>
-    <input type="text" name="Phone" placeholder="Phone / WhatsApp Number" required>
-    <input type="text" name="Location" placeholder="City / Suburb" required>
-    <input type="text" name="Price" placeholder="Monthly Rent (USD)" required>
-    <textarea name="Details" placeholder="Property details" rows="4"></textarea>
-    <input type="text" name="Image_Link" placeholder="Paste image link (Google Drive / iCloud / WhatsApp)">
-
-    <p style="font-size:14px;color:#555;">
-      📸 Upload images to Google Drive or iCloud and paste the link above,
-      or send images via WhatsApp after submitting.
-    </p>
-
-    <button type="submit">Submit Property</button>
-  </form>
-</div>
-
-<div class="section-title">Browse by Location</div>
-
-<!-- MAP -->
-<div class="card">
-  <iframe
-    src="https://www.google.com/maps?q=Zimbabwe&output=embed"
-    width="100%"
-    height="300"
-    style="border:0;border-radius:8px;"
-    loading="lazy">
-  </iframe>
-</div>
-
-<div class="section-title">Featured Listings</div>
-
-<!-- LISTING -->
 <div class="card">
   <h3>Room for Rent – Highfield, Harare</h3>
-
   <p><strong>Type:</strong> Room</p>
   <p><strong>Rent:</strong> $120 / month</p>
   <p><strong>Location:</strong> Highfield (Harare)</p>
@@ -178,70 +92,70 @@
     <p><strong>Contact:</strong> 077X XXX XXX</p>
     <p><strong>WhatsApp:</strong> 077X XXX XXX</p>
   </div>
-<p style="font-size:14px;color:#555;">
-  💳 You will be redirected to Paynow. Select <strong>EcoCash</strong>,
-  enter your EcoCash number, and confirm payment to unlock access.
-</p>
-<a
-  href="https://www.paynow.co.zw/Payment/Link/?q=c2VhcmNoPXJvYmluZHppbWFubyU0MGdtYWlsLmNvbSZhbW91bnQ9Mi4wMCZyZWZlcmVuY2U9Jmw9MQ%3d%3d"
-  target="_blank"
 
-  style="
-    display:block;
-    margin-top:10px;
-    padding:12px;
-    width:100%;
-    background:#28a745;
-    color:white;
-    text-align:center;
-    text-decoration:none;
-    border-radius:5px;
-    font-size:16px;
-    font-weight:bold;
-  ">
-  Pay $2 – Unlimited Access for 24 Hours
-</a>
-<button
-  onclick="startDailyAccess()"
-  style="
-    margin-top:10px;
-    padding:10px;
-    width:100%;
-    background:#0a7cff;
-    color:white;
-    border:none;
-    border-radius:5px;
-    font-size:15px;
-  ">
-  ✅ I Have Completed Payment
-</button>
+  <p style="font-size:14px;color:#555;">
+    💳 You will be redirected to Paynow. Select <strong>EcoCash</strong>,
+    enter your EcoCash number, and confirm payment.
+  </p>
 
-<p style="font-size:13px;color:#777;margin-top:6px;">
-  After paying via EcoCash, tap this button to unlock access.
-</p>
-  <p style="font-size:13px;color:#555;margin-top:6px;">
-    Unlock all listings and contact details for 24 hours.
+  <a
+    href="https://www.paynow.co.zw/Payment/Link/?q=c2VhcmNoPXJvYmluZHppbWFubyU0MGdtYWlsLmNvbSZhbW91bnQ9Mi4wMCZyZWZlcmVuY2U9Jmw9MQ%3d%3d"
+    target="_blank"
+    style="
+      display:block;
+      margin-top:10px;
+      padding:12px;
+      background:#28a745;
+      color:white;
+      text-align:center;
+      border-radius:5px;
+      font-weight:bold;
+      text-decoration:none;
+    ">
+    Pay $2 – Unlimited Access for 24 Hours
+  </a>
+
+  <button
+    onclick="manualConfirm()"
+    style="
+      margin-top:10px;
+      padding:10px;
+      width:100%;
+      background:#0a7cff;
+      color:white;
+      border:none;
+      border-radius:5px;
+      font-size:15px;
+    ">
+    ✅ I Have Completed Payment
+  </button>
+
+  <p style="font-size:13px;color:#777;">
+    After paying via EcoCash, tap the button above.
   </p>
 </div>
 
-<a class="whatsapp" href="https://wa.me/263XXXXXXXXX">
-  WhatsApp
-</a>
+<a class="whatsapp" href="https://wa.me/263783036133">WhatsApp</a>
 
-<footer>
-  © 2025 RentEasy ZW
-</footer>
+<footer>© 2025 RentEasy ZW</footer>
 
-<!-- ACCESS LOGIC -->
-<script>
-  const ACCESS_DURATION = 24 * 60 * 60 * 1000; // 24 hours
+<!-- ✅ SINGLE, CLEAN FIREBASE SCRIPT -->
+<script type="module">
 
-  function startDailyAccess() {
-    const now = new Date().getTime();
-    localStorage.setItem("accessStartTime", now);
-    unlockDetails();
-    alert("Access granted for 24 hours.");
-  }
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBg9vvL7_nk_IAJD7BaypjbvY2sGv5IS7c",
+    authDomain: "renteasyzw.firebaseapp.com",
+    projectId: "renteasyzw",
+    storageBucket: "renteasyzw.appspot.com",
+    messagingSenderId: "242130915612",
+    appId: "1:242130915612:web:752408040f8b9eb8cbead9"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
   function unlockDetails() {
     document.getElementById("lockedNotice").style.display = "none";
@@ -253,101 +167,28 @@
     document.getElementById("contactDetails").style.display = "none";
   }
 
-  function checkAccess() {
-    const startTime = localStorage.getItem("accessStartTime");
-
-    if (!startTime) {
-      lockDetails();
-      return;
-    }
-
-    const now = new Date().getTime();
-
-    if (now - startTime < ACCESS_DURATION) {
-      unlockDetails();
-    } else {
-      localStorage.removeItem("accessStartTime");
-      lockDetails();
-    }
-  }
-
-  window.onload = checkAccess;
-</script>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyBg9vvL7_nk_IAJD7BaypjbvY2sGv5IS7c",
-    authDomain: "renteasyzw.firebaseapp.com",
-    projectId: "renteasyzw",
-    storageBucket: "renteasyzw.firebasestorage.app",
-    messagingSenderId: "242130915612",
-    appId: "1:242130915612:web:752408040f8b9eb8cbead9"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  <script type="module">
-  // Firebase imports
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-  // Your existing Firebase config (KEEP AS IS)
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "renteasyzw.firebaseapp.com",
-    projectId: "renteasyzw",
-    storageBucket: "renteasyzw.appspot.com",
-    messagingSenderId: "242130915612",
-    appId: "1:242130915612:web:xxxxxxxx"
-  };
-
-  // Init Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  // 🔍 TEST READ FUNCTION
-  async function testReadAccess() {
+  async function checkFirestoreAccess(phone) {
     const snapshot = await getDocs(collection(db, "access"));
+    let hasAccess = false;
+
     snapshot.forEach(doc => {
-      console.log("ACCESS DOC:", doc.id, doc.data());
+      const d = doc.data();
+      if (d.phone === phone && d.paid === true && d.accessExpiry > Date.now()) {
+        hasAccess = true;
+      }
     });
+
+    hasAccess ? unlockDetails() : lockDetails();
   }
 
-  // Run test
-  testReadAccess();
+  window.manualConfirm = () => {
+    checkFirestoreAccess("263783036133"); // TEMP phone
+    alert("Checking payment status...");
+  };
+
+  checkFirestoreAccess("263783036133");
+
 </script>
-// 🔓 REAL ACCESS CHECK (Firestore-based)
-async function checkFirestoreAccess(userPhone) {
-  const snapshot = await getDocs(collection(db, "access"));
 
-  let hasAccess = false;
-
-  snapshot.forEach(doc => {
-    const data = doc.data();
-
-    if (
-      data.phone === userPhone &&
-      data.paid === true &&
-      data.accessExpiry > Date.now()
-    ) {
-      hasAccess = true;
-    }
-  });
-
-  if (hasAccess) {
-    unlockDetails();
-  } else {
-    lockDetails();
-  }
-}
-// TEMP TEST PHONE (replace with one in Firestore)
-checkFirestoreAccess("263783036133");
-  console.log("Firebase connected successfully");
-</script>
 </body>
 </html>
