@@ -20,6 +20,12 @@
       text-align: center;
     }
 
+    .section-title {
+      margin: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
     .search-box, .card {
       background: white;
       margin: 20px;
@@ -78,6 +84,69 @@
   <p>Find rental properties across Zimbabwe</p>
 </header>
 
+<!-- SEARCH -->
+<div class="search-box">
+  <select>
+    <option>Select City / Town</option>
+    <option>Harare</option>
+    <option>Bulawayo</option>
+    <option>Gweru</option>
+    <option>Mutare</option>
+    <option>Masvingo</option>
+    <option>Chinhoyi</option>
+    <option>Marondera</option>
+  </select>
+
+  <select>
+    <option>Property Type</option>
+    <option>Room</option>
+    <option>Apartment</option>
+    <option>House</option>
+  </select>
+
+  <button>Search Properties</button>
+</div>
+
+<!-- LANDLORD FORM -->
+<div class="search-box">
+  <h3>List Your Property (FREE)</h3>
+
+  <form action="mailto:robindzimano@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="Name" placeholder="Your Name" required>
+    <input type="text" name="Phone" placeholder="Phone / WhatsApp Number" required>
+    <input type="text" name="Location" placeholder="City / Suburb" required>
+    <input type="text" name="Price" placeholder="Monthly Rent (USD)" required>
+    <textarea name="Details" placeholder="Property details" rows="4"></textarea>
+    <input type="text" name="Image_Link" placeholder="Paste image link (Google Drive / iCloud / WhatsApp)">
+
+    <p style="font-size:14px;color:#555;">
+      📸 Upload images to Google Drive or iCloud and paste the link,
+      or send photos via WhatsApp after submitting.
+    </p>
+
+    <button type="submit">Submit Property</button>
+  </form>
+</div>
+
+<!-- MAP -->
+<div class="section-title">Browse by Location</div>
+<div class="card">
+  <iframe
+    src="https://www.google.com/maps?q=Zimbabwe&output=embed"
+    width="100%"
+    height="300"
+    style="border:0;border-radius:8px;"
+    loading="lazy">
+  </iframe>
+
+  <p style="font-size:14px;color:#555;margin-top:8px;">
+    📍 Locations are approximate for privacy & safety.
+  </p>
+</div>
+
+<!-- LISTING -->
+<div class="section-title">Featured Listings</div>
+
 <div class="card">
   <h3>Room for Rent – Highfield, Harare</h3>
   <p><strong>Type:</strong> Room</p>
@@ -131,7 +200,7 @@
   </button>
 
   <p style="font-size:13px;color:#777;">
-    After paying via EcoCash, tap the button above.
+    Unlock all listings and contact details for 24 hours.
   </p>
 </div>
 
@@ -139,9 +208,8 @@
 
 <footer>© 2025 RentEasy ZW</footer>
 
-<!-- ✅ SINGLE, CLEAN FIREBASE SCRIPT -->
+<!-- FIREBASE + ACCESS LOGIC -->
 <script type="module">
-
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
@@ -182,12 +250,11 @@
   }
 
   window.manualConfirm = () => {
-    checkFirestoreAccess("263783036133"); // TEMP phone
-    alert("Checking payment status...");
+    checkFirestoreAccess("263783036133");
+    alert("Checking payment status…");
   };
 
   checkFirestoreAccess("263783036133");
-
 </script>
 
 </body>
