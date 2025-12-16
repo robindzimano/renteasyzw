@@ -321,6 +321,32 @@
   // Run test
   testReadAccess();
 </script>
+// 🔓 REAL ACCESS CHECK (Firestore-based)
+async function checkFirestoreAccess(userPhone) {
+  const snapshot = await getDocs(collection(db, "access"));
+
+  let hasAccess = false;
+
+  snapshot.forEach(doc => {
+    const data = doc.data();
+
+    if (
+      data.phone === userPhone &&
+      data.paid === true &&
+      data.accessExpiry > Date.now()
+    ) {
+      hasAccess = true;
+    }
+  });
+
+  if (hasAccess) {
+    unlockDetails();
+  } else {
+    lockDetails();
+  }
+}
+// TEMP TEST PHONE (replace with one in Firestore)
+checkFirestoreAccess("263783036133");
   console.log("Firebase connected successfully");
 </script>
 </body>
